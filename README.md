@@ -16,7 +16,7 @@ OpenSSH
 ```
 #~ cat /etc/ssh/sshd_config
 ...
-AuthorizedKeysCommand			  /opt/ldapkeys/ldapkeys.sh
+AuthorizedKeysCommand		  /opt/ldapkeys/ldapkeys.sh
 AuthorizedKeysCommandUser		nobody
 ...
 #~
