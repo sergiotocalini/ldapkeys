@@ -14,6 +14,7 @@ APP_CONF="/etc/ldap/ldapkeys.conf"
 TIMESTAMP=`date '+%s'`
 CACHE_DIR=/tmp/${APP_NAME%.*}
 CACHE_TTL=5
+KEYS_OWNER=nobody
 
 #
 #################################################################################
@@ -57,6 +58,7 @@ if [[ $(( `stat -c '%Y' "${file}" 2>/dev/null`+60*${CACHE_TTL} )) -le ${TIMESTAM
 	  | ${SED} -n '/^ /{H;d};/'"${ATTR_KEYS}"':/x;$g;s/\n *//g;s/'"${ATTR_KEYS}"': //gp'`
     if [[ ${?} == 0 ]]; then
 	echo "${keys}" > "${file}"
+	chown "${KEYS_OWNER}": "${file}"
     fi
 fi
 [[ -f "${file}" ]] && cat "${file}"
