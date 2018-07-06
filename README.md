@@ -32,7 +32,20 @@ CACHE_TTL|5
 Configuration
 -------------
 ```
-#~ vi /etc/ldap/ldapkeys.conf
+#~ cat /etc/ldap/ldapkeys.conf
+HOST="localhost"
+BINDDN="cn=binduser,ou=auth,dc=example,dc=com"
+BINDPW="xxxxxx"
+BASEDN="ou=people,dc=example,dc=com"
+OPTIONS=""
+ATTR_USER="uid"
+ATTR_KEYS="sshPublicKey"
+ATTR_FILTER=""
+SED="/bin/sed"
+LDAPSEARCH="/usr/bin/ldapsearch"
+CACHE_DIR="/etc/ldap/keys"
+CACHE_TTL="5"
+#~
 ```
 
 OpenSSH
