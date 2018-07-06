@@ -48,6 +48,28 @@ CACHE_TTL="5"
 #~
 ```
 
+Execution
+---------
+```
+#~ /usr/local/bin/ldapkeys -h
+Usage: ldapkeys [Options]
+
+Options:
+  -h            Displays this help message.
+  -u ARG(str)   Username.
+  -c ARG(str)   ldapkeys configuration file.
+  -v            Show the script version.
+
+Please send any bug reports to sergiotocalini@gmail.com
+#~
+```
+
+```
+#~ /usr/local/bin/ldapkeys -u ${USER} -c /etc/ldap/ldapkeys.conf
+...
+#~
+```
+
 OpenSSH
 -------
 
