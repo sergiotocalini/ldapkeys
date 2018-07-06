@@ -8,8 +8,8 @@
 #
 APP_NAME=$(basename $0)
 APP_DIR=$(dirname $0)
-APP_VER="0.0.1"
-APP_WEB="http://www.sergiotocalini.com.ar/"
+APP_VER="0.1.0"
+APP_WEB="https://github.com/sergiotocalini/ldapkeys"
 APP_CONF="/etc/ldap/ldapkeys.conf"
 TIMESTAMP=`date '+%s'`
 CACHE_DIR=/tmp/${APP_NAME%.*}
@@ -25,6 +25,31 @@ KEYS_OWNER=nobody
 #
 [[ -f "${APP_CONF}" ]] && . "${APP_CONF}"
 
+#
+#################################################################################
+
+#################################################################################
+#
+#  Function Definition
+# ---------------------
+#
+usage() {
+    echo "Usage: ${APP_NAME%.*} [Options]"
+    echo ""
+    echo "Options:"
+    echo "  -h            Displays this help message."
+    echo "  -u ARG(str)   Username."
+    echo "  -c ARG(str)   ldapkeys configuration file."
+    echo "  -v            Show the script version."
+    echo ""
+    echo "Please send any bug reports to sergiotocalini@gmail.com"
+    exit 1
+}
+
+version() {
+    echo "${APP_NAME%.*} ${APP_VER}"
+    exit 1
+}
 #
 #################################################################################
 
