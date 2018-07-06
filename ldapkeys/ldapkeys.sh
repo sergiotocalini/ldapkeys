@@ -54,7 +54,7 @@ if [[ $(( `stat -c '%Y' "${file}" 2>/dev/null`+60*${CACHE_TTL} )) -le ${TIMESTAM
     filter="(&(objectClass=posixAccount)(${ATTR_USER}=${USER}))"
     keys=`${LDAPSEARCH} ${OPTIONS} -h ${HOST} -D "${BINDDN}" -w "${BINDPW}" \
 				  -b "${BASEDN}" ${filter} "${ATTR_KEYS}" \
-	  | ${SED} -n '/^/{H;d};/'"${ATTR_KEYS}"':/x;$g;s/\n *//g;s/'"${ATTR_KEYS}"': //gp'`
+	  | ${SED} -n '/^ /{H;d};/'"${ATTR_KEYS}"':/x;$g;s/\n *//g;s/'"${ATTR_KEYS}"': //gp'`
     if [[ ${?} == 0 ]]; then
 	echo "${keys}" > "${file}"
     fi
