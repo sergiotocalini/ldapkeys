@@ -65,7 +65,7 @@ Please send any bug reports to sergiotocalini@gmail.com
 ```
 
 ```
-#~ /usr/local/bin/ldapkeys -u ${USER} -c /etc/ldap/ldapkeys.conf
+#~ /usr/local/bin/ldapkeys -u ${USER}
 ...
 #~
 ```
