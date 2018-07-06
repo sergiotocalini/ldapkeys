@@ -5,9 +5,14 @@ Installation
 ------------
 
 ```
-#~ git clone https://github.com/sergiotocalini/ldapkeys.git /opt/ldapkeys
-#~ cp /opt/ldapkeys/ldapkeys.env.example /opt/ldapkeys/ldapkeys.env
-#~ vi /opt/ldapkeys/ldapkeys.env
+#~ git clone https://github.com/sergiotocalini/ldapkeys.git
+#~ ./ldapkeys/install.sh
+```
+
+Configuration
+-------------
+```
+#~ vi /etc/ldap/ldapkeys.conf
 ```
 
 OpenSSH
@@ -16,7 +21,7 @@ OpenSSH
 ```
 #~ cat /etc/ssh/sshd_config
 ...
-AuthorizedKeysCommand		   /opt/ldapkeys/ldapkeys.sh
+AuthorizedKeysCommand		    /usr/local/bin/ldapkeys
 AuthorizedKeysCommandUser		nobody
 ...
 #~
