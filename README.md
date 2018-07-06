@@ -57,7 +57,7 @@ Usage: ldapkeys [Options]
 Options:
   -h            Displays this help message.
   -u ARG(str)   Username.
-  -c ARG(str)   ldapkeys configuration file.
+  -c ARG(str)   ldapkeys configuration file (default=/etc/ldap/ldapkeys.conf).
   -v            Show the script version.
 
 Please send any bug reports to sergiotocalini@gmail.com
