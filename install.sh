@@ -9,10 +9,11 @@ BASEDN="${4:-ou=people,dc=example,dc=com}"
 OPTIONS="${5}"
 ATTR_USER="${6:-uid}"
 ATTR_KEYS="${7:-ldapPublicKey}"
-SED="${8:-`which sed`}"
-LDAPSEARCH="${9:-`which ldapsearch`}"
-CACHE_DIR="${10:-/etc/ldap/keys}"
-CACHE_TTL="${11:-5}"
+ATTR_FILTER="${8}"
+SED="${9:-`which sed`}"
+LDAPSEARCH="${10:-`which ldapsearch`}"
+CACHE_DIR="${11:-/etc/ldap/keys}"
+CACHE_TTL="${12:-5}"
 
 mkdir -p ${DEPLOY_DIR}
 

@@ -51,7 +51,7 @@ done
 [[ -d "${CACHE_DIR}" ]] || mkdir -p "${CACHE_DIR}"
 file="${CACHE_DIR}/${USER}"
 if [[ $(( `stat -c '%Y' "${file}" 2>/dev/null`+60*${CACHE_TTL} )) -le ${TIMESTAMP} ]]; then
-    filter="(&(objectClass=posixAccount)(${ATTR_USER}=${USER}))"
+    filter="(&(objectClass=posixAccount)(${ATTR_USER}=${USER})${ATTR_FILTER})"
     keys=`${LDAPSEARCH} ${OPTIONS} -h ${HOST} -D "${BINDDN}" -w "${BINDPW}" \
 				  -b "${BASEDN}" ${filter} "${ATTR_KEYS}" \
 	  | ${SED} -n '/^ /{H;d};/'"${ATTR_KEYS}"':/x;$g;s/\n *//g;s/'"${ATTR_KEYS}"': //gp'`
