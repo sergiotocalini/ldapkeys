@@ -11,6 +11,8 @@ ATTR_USER="${6:-uid}"
 ATTR_KEYS="${7:-ldapPublicKey}"
 SED="${8:-`which sed`}"
 LDAPSEARCH="${9:-`which ldapsearch`}"
+CACHE_DIR="${10:-/etc/ldap/keys}"
+CACHE_TTL="${11:-5}"
 
 mkdir -p ${DEPLOY_DIR}
 
