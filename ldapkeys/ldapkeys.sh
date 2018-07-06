@@ -39,7 +39,7 @@ usage() {
     echo "Options:"
     echo "  -h            Displays this help message."
     echo "  -u ARG(str)   Username."
-    echo "  -c ARG(str)   ldapkeys configuration file."
+    echo "  -c ARG(str)   ldapkeys configuration file (default=/etc/ldap/ldapkeys.conf)."
     echo "  -v            Show the script version."
     echo ""
     echo "Please send any bug reports to sergiotocalini@gmail.com"
