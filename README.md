@@ -19,14 +19,14 @@ SED|`which sed`
 LDAPSEARCH|`which ldapsearch`
 CACHE_DIR|/etc/ldap/keys
 CACHE_TTL|5
-
+KEYS_OWNER|nobody
 
 ```
 #~ git clone https://github.com/sergiotocalini/ldapkeys.git
 #~ ./ldapkeys/install.sh "${HOST}" "${BINDDN}" "${BINDPW}" "${BASEDN}" \
                          "${OPTIONS}" "${ATTR_USER}" "${ATTR_KEYS}" \
                          "${ATTR_FILTER}" "${SED}" "${LDAPSEARCH}" \
-                         "${CACHE_DIR}" "${CACHE_TTL}" 
+                         "${CACHE_DIR}" "${CACHE_TTL}" "${KEYS_OWNER}"
 ```
 
 Configuration
@@ -45,6 +45,7 @@ SED="/bin/sed"
 LDAPSEARCH="/usr/bin/ldapsearch"
 CACHE_DIR="/etc/ldap/keys"
 CACHE_TTL="5"
+KEYS_OWNER="nobody"
 #~
 ```
 

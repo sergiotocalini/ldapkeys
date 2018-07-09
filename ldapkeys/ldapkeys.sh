@@ -12,9 +12,9 @@ APP_VER="0.1.0"
 APP_WEB="https://github.com/sergiotocalini/ldapkeys"
 APP_CONF="/etc/ldap/ldapkeys.conf"
 TIMESTAMP=`date '+%s'`
-CACHE_DIR=/tmp/${APP_NAME%.*}
-CACHE_TTL=5
-KEYS_OWNER=nobody
+CACHE_DIR="/tmp/${APP_NAME%.*}"
+CACHE_TTL="5"
+KEYS_OWNER="nobody"
 
 #
 #################################################################################
