@@ -79,9 +79,9 @@ file="${CACHE_DIR}/${USER}"
 if [[ $(( `stat -c '%Y' "${file}" 2>/dev/null`+60*${CACHE_TTL} )) -le ${TIMESTAMP} ]]; then
     filter="(&(objectClass=posixAccount)(${ATTR_USER}=${USER})${ATTR_FILTER})"
     keys=`${LDAPSEARCH} ${OPTIONS} -h ${HOST} -D "${BINDDN}" -w "${BINDPW}" \
-				  -b "${BASEDN}" ${filter} "${ATTR_KEYS}" \
+				  -b "${BASEDN}" ${filter} "${ATTR_KEYS}" 2>/dev/null \
 	  | ${SED} -n '/^ /{H;d};/'"${ATTR_KEYS}"':/x;$g;s/\n *//g;s/'"${ATTR_KEYS}"': //gp'`
-    if [[ ${?} == 0 ]]; then
+    if [[ ${?} == 0 && -z ${keys} ]]; then
 	echo "${keys}" > "${file}"
 	chown "${KEYS_OWNER}": "${file}"
     fi
