@@ -81,7 +81,7 @@ if [[ $(( `stat -c '%Y' "${file}" 2>/dev/null`+60*${CACHE_TTL} )) -le ${TIMESTAM
     keys=`${LDAPSEARCH} ${OPTIONS} -h ${HOST} -D "${BINDDN}" -w "${BINDPW}" \
 				  -b "${BASEDN}" ${filter} "${ATTR_KEYS}" 2>/dev/null \
 	  | ${SED} -n '/^ /{H;d};/'"${ATTR_KEYS}"':/x;$g;s/\n *//g;s/'"${ATTR_KEYS}"': //gp'`
-    if [[ ${?} == 0 && -z ${keys} ]]; then
+    if [[ ${?} == 0 && -n ${keys} ]]; then
 	echo "${keys}" > "${file}"
 	chown "${KEYS_OWNER}": "${file}"
     fi
